@@ -68,14 +68,23 @@ let persone = {
         while (items == "" || typeof(items) != 'string' || items == null) {
             items = prompt("Что принест дополнительный доход? (перечислите через заятую)", "");
             }
-        console.log(items);
+        //console.log(items);
         persone.income = items.split(', ');
         let items_more = prompt("Еще?", "");
         if (items_more != "" && typeof(items_more) == 'string' && items_more != null) 
             persone.income.push(items_more);
         persone.income.sort();
-        alert("Методы доп.заработка:");
-        persone.income.forEach((item, index) => {alert(`${index+1}: ${item}`)});
+        let outputString = "Методы доп.заработка:\n";
+        //alert("Методы доп.заработка:");
+        persone.income.forEach((item, index) => {outputString = outputString + `${index+1}: ${item}\n`});
+        alert(outputString);
+    },
+    OutputPersoneData: function() {
+        let outputString = "Object PERSONE has next properties:\n";
+        for (let key in persone) {
+            outputString = outputString + key + ' - ' + persone[key] + '\n';
+        }
+        alert(outputString);
     }
 };
 
