@@ -59,19 +59,23 @@ let persone = {
     },
     ChooseOptExpenses: function () {
         for (let i = 1; i < 3; i++) {
-            let opt = promt("Cтатья необязательных расходов?", "");
+            let opt = prompt("Cтатья необязательных расходов?", "");
             persone.optionalExpenses[i] = opt;
         }
     },
     ChooseIncome: function() {
-        while 
         let items = prompt("Что принест дополнительный доход? (перечислите через заятую)", "");
-        while (items == "" || typeof(items) == !string || items == null) {
-            let items = prompt("Что принест дополнительный доход? (перечислите через заятую)", "");
-            )
+        while (items == "" || typeof(items) != 'string' || items == null) {
+            items = prompt("Что принест дополнительный доход? (перечислите через заятую)", "");
+            }
+        console.log(items);
         persone.income = items.split(', ');
-        persone.income.push(prompt("Еще?"));
+        let items_more = prompt("Еще?", "");
+        if (items_more != "" && typeof(items_more) == 'string' && items_more != null) 
+            persone.income.push(items_more);
         persone.income.sort();
+        alert("Методы доп.заработка:");
+        persone.income.forEach((item, index) => {alert(`${index+1}: ${item}`)});
     }
 };
 
