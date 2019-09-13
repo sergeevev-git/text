@@ -39,11 +39,11 @@ a:active{text-decoration:none}
     margin:0 auto;
     border:none;
     border-radius:7.5px;
-    background-image:linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff);
+    background-image:linear-gradient(336deg,#4a00f8,#ff964b),linear-gradient(#fff,#fff);
     box-shadow:0 2.5px 10px 0 rgba(1,0,42,.1);
     color:#fff;
     font-weight:100;
-    font-size:9px;
+    font-size:12px;
     cursor:pointer;
 }
 

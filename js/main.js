@@ -48,24 +48,24 @@ btn_start.addEventListener('click', function() {
 })
 
 expenses_item_btn.addEventListener('click', function() {
-    let sum = 0;
+    let summa = 0;
     for (let i = 0; i < expenses_item.length; i++) {
         let a = expenses_item[i].value,
             b = expenses_item[++i].value;
-            console.log(typeof(Number(b)));
-            console.log(Number(b));
+            // console.log(typeof(Number(b)));
+            // console.log(Number(b));
         //проверка на корректность введенных данных
         if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
         //далее вариант условия мс проверкой поля цены на введение букв, надо разобраться
-        //if ( typeof(a)==='string' && Number(b)!=NaN && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {            
+        //if ( typeof(a)==='string' && isNaN(Number(b)) && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {            
             persone.expenses[a] = b;
-            sum += +b;
+            summa += +b;
         } else {                            
-            console.log ("bad result");
+            //console.log ("bad result");
             i--;
         }
      }
-    expenses_value.textContent = sum;
+    expenses_value.textContent = summa;
 })
 
 optionalexpenses_btn.addEventListener('click',function() {
@@ -78,9 +78,8 @@ optionalexpenses_btn.addEventListener('click',function() {
 
 count_budget_btn.addEventListener('click', function() {
     if (persone.budget != undefined)    {
-        persone.moneyPerDay = (persone.budget / 30).toFixed();
+        persone.moneyPerDay = ((persone.budget - +expenses_value.textContent) / 30).toFixed();
         daybudget_value.textContent = persone.moneyPerDay;
-
         if (persone.moneyPerDay < 100) {
             level_value.textContent = "Минимальный уровень достатка";
         } else if (persone.moneyPerDay >= 100 && persone.moneyPerDay <= 2000) {
